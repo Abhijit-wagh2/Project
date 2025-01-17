@@ -1,21 +1,19 @@
+
 const hre = require("hardhat");
 
 async function main() {
-  // Get the first signer (deployer)
-  const [deployer] = await hre.ethers.getSigners();
-  console.log("Deploying contract with account:", deployer.address);
+  const Chai = await hre.ethers.getContractFactory("chai"); //fetching bytecode and ABI
+  const chai = await Chai.deploy(); //creating an instance of our smart contract
 
- 
-  // Create contract factory and deploy
-  console.log("Creating contract factory...");
-  const Chai = await hre.ethers.getContractFactory("chai");
-  console.log("Deploying contract...");
-  const chai = await Chai.deploy();
-  
+  await chai.deployed();//deploying your smart contract
+
+  console.log("Deployed contract address:",`${chai.address}`);
 }
 
-// Error handling
+// We recommend this pattern to be able to use async/await everywhere
+// and properly handle errors.
 main().catch((error) => {
-  console.error("Error during deployment:", error);
+  console.error(error);
   process.exitCode = 1;
 });
+// 0xc4F656B6C03Ee81972c13DA21041aD4Cd0729a4d

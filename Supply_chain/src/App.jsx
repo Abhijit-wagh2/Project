@@ -16,7 +16,7 @@ function App() {
   useEffect(()=>{
     const template=async()=>{
    
-      const contractAddres="0x2A6E75985EF4280fC823dcdb9cE7946Cb5A67e9c";
+      const contractAddres="0x45E4A78E8fdd6137145AB8C207A965FFB029B6B5";
       const contractABI=abi.abi;
       //Metamask part
       //1. In order do transactions on goerli testnet
